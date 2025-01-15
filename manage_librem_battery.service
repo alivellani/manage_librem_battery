@@ -1,14 +1,15 @@
 # move this service to /etc/systemd/system/
-# sudo cp codes/manage_pinephone_bat/manage_pinephone_bat.service /etc/systemd/system/manage_pinephone_bat.service
+# sudo cp manage_librem_battery.service /etc/systemd/system/manage_librem_battery.service
 
 [Unit]
-Description=Manage pinephone battery
+Description=Manage Librem5 battery
 After=multi-user.target
 
 [Service]
 Type=simple
 Restart=always
-ExecStart=/usr/bin/python3 /usr/bin/manage_pinephone_bat.py
+ExecStartPre=/bin/chmod o+rw /sys/class/leds/chg_en/brightness
+ExecStart=/usr/bin/python3 /usr/bin/manage_librem_battery.py
 
 [Install]
 WantedBy=multi-user.target

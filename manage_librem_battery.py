@@ -1,5 +1,5 @@
 # # s/usr/bin/manage_pinephone_bat.py
-# # sudo cp Documents/codes/manage_pinephone_bat/manage_pinephone_bat.py /usr/bin/manage_pinephone_bat.py
+# # sudo cp manage_librem_battery.py /usr/bin/manage_librem_battery.py
 
 # changes for pusim
 
@@ -12,7 +12,7 @@ import os
 
 internal = "max170xx_battery"
 external = "NA"
-log_dir = "/home/purism/Documents/codes/manage_pinephone_bat/logs"
+log_dir = "/home/purism/Documents/codes/manage_librem_battery/logs"
 
 def read_battery_capacity(battery_type):
     try:
@@ -65,9 +65,6 @@ def set_charge_behaviour(value, battery_type):
         print(f"Permission denied: {e}")
     except Exception as e:
         print(f"Failed to set charging behaviour for {battery_type}: {e}")
-
-
-
 
 def inhibit_charge(battery_type):
     set_charge_behaviour("1", battery_type)
